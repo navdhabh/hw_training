@@ -15,12 +15,24 @@ class Drive:
         # A bit of help! These are arrays of data
         axes = inp.axes
         buttons = inp.buttons
-
-        """TODO - INSERT YOUR CODE HERE
-        
-        Problem Statement: Insert Code here to make the rover move 
-        forwards, backwards, left, right according to input given
-        """
+        f = buttons[0]
+        b = buttons[1]
+        r = buttons[2]
+        l = buttons[3]
+        val = 1
+        if (f==1):
+            RoboClaw.ForwardM2(self,val)
+            RoboClaw.ForwardM1(self,val)
+        elif b==1:
+            RoboClaw.BackwardM1(self,val)
+            RoboClaw.BackwardM2(self,val)
+        elif r==1:
+            RoboClaw.ForwardM2(self,val)
+            RoboClaw.BackwardM1(self,val)   #M1 on right, M2 on left
+        elif l==1:
+            RoboClaw.ForwardM1(self,val)
+            RoboClaw.BackwardM2(self,val)
+                
         
 
     def current_limiter(self):
